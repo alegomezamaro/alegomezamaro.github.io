@@ -11,4 +11,4 @@
 
 - **Email personal:** [alexgoama@gmail.com](mailto:alexgoama@egmail.com)
 - **Email profesional:** [p32goama@uco.es](mailto:p32goama@uco.es)
-- **LinkedIn:** [linkedin.com/in/alegomezamaro](https://www.linkedin.com/in/alegomezamaro)
+- **LinkedIn:** [Linkedin](https://www.linkedin.com/in/alegomezamaro)
