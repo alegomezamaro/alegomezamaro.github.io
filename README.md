@@ -9,6 +9,6 @@
 
 ## 📫 Contacto
 
-- **Email personal:** [alexgoama@gmail.com](mailto:alexgoama@egmail.com)
-- **Email profesional:** [p32goama@uco.es](mailto:p32goama@uco.es)
-- **LinkedIn:** [Linkedin](https://www.linkedin.com/in/alegomezamaro)
+- **Email personal:** [Email personal](mailto:alexgoama@egmail.com)
+- **Email profesional:** [Email profesional](mailto:p32goama@uco.es)
+- [Linkedin](https://www.linkedin.com/in/alegomezamaro)
