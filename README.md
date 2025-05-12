@@ -6,6 +6,7 @@ Este es mi portfolio personal, desarrollado como una página web para mostrar mi
 
 Este proyecto tiene la siguiente estructura de directorios:
 
+```
 |-- /portfolio
 |   |-- /assets
 |   |   |-- /css
@@ -16,6 +17,7 @@ Este proyecto tiene la siguiente estructura de directorios:
 |   |   |   |-- profile.jpg         # Imagen de perfil utilizada en la sección "Sobre Mí".
 |   |-- index.html                # El archivo HTML principal que estructura la página.
 |   |-- README.md                 # Este archivo de documentación.
+```
 
 ### Descripción del Proyecto
 
