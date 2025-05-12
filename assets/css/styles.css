@@ -1,0 +1,14 @@
+/* Agrega todo el CSS que hemos utilizado en el archivo original */
+:root {
+    --primary-color: #121212;
+    --secondary-color: #f5f5f5;
+    --accent-color: #5d8dec;
+    --text-color: #333333;
+    --light-grey: #e0e0e0;
+    --medium-grey: #888888;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Los demás estilos del archivo original... */
+  
+  /* Aquí va todo el estilo que se encuentra actualmente en tu index.html */  
