@@ -23,7 +23,7 @@ Este proyecto tiene la siguiente estructura de directorios:
 
 El sitio web incluye varias secciones destacadas:
 
-- **Sobre Mí**: Una introducción personal y una breve descripción de mis habilidades como desarrollador web.
+- **Sobre Mí**: Introducción personal y una breve descripción de mis habilidades como desarrollador web.
 - **Mis Skills**: Una lista de las tecnologías con las que trabajo, como HTML5, CSS3, JavaScript, React, Node.js, etc.
 - **Mis Proyectos**: Muestra de proyectos recientes en los que he trabajado. (Puedes agregar los enlaces y descripciones de tus proyectos aquí).
 - **Contáctame**: Enlaces a mis redes sociales y correos electrónicos para contactarme.
