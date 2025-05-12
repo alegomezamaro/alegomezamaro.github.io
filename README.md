@@ -29,9 +29,3 @@ El sitio web incluye varias secciones destacadas:
 - **Mis Skills**: Una lista de las tecnologías con las que trabajo, como HTML5, CSS3, JavaScript, React, Node.js, etc.
 - **Mis Proyectos**: Muestra de proyectos recientes en los que he trabajado. (Puedes agregar los enlaces y descripciones de tus proyectos aquí).
 - **Contáctame**: Enlaces a mis redes sociales y correos electrónicos para contactarme.
-
-### Características
-
-- **Diseño Responsivo**: El sitio se adapta a dispositivos móviles, tabletas y escritorios.
-- **Interactividad**: Al utilizar JavaScript, el sitio tiene interacciones dinámicas como menús móviles y animaciones de desplazamiento.
-- **Optimización para SEO**: El proyecto está diseñado para ser fácilmente indexado por motores de búsqueda.

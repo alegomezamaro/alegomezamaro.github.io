@@ -1,23 +1,9 @@
-// Funcionalidades que estaban dentro de `app-script` en tu archivo HTML
-
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
       document.body.classList.add('loaded');
     }, 300);
   
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-  
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-  
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-    }));
-  
+    // Sección de IntersectionObserver para animar las secciones cuando se hace scroll
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -31,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(section);
     });
   
+    // Simulación de carga de proyectos (aquí puedes agregar más proyectos si lo deseas)
     setTimeout(() => {
       const projectsContainer = document.getElementById('projects-container');
-      
+  
       const projects = [
         {
           id: 1,
@@ -43,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
           stars: 45,
           url: 'javascript:void(0)'
         },
-        // Más proyectos...
+        // Más proyectos pueden ser agregados aquí
       ];
   
       let projectsHTML = '<div class="projects-grid">';
@@ -67,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         `;
       });
-      
+  
       projectsHTML += '</div>';
       projectsContainer.innerHTML = projectsHTML;
     }, 1500);
