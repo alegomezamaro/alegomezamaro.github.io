@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portfolio | Desarrollador Web</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style id="app-style">
+    :root {
+      --primary-color: #121212;
+      --secondary-color: #f5f5f5;
+      --accent-color: #5d8dec;
+      --text-color: #333333;
+      --light-grey: #e0e0e0;
+      --medium-grey: #888888;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--secondary-color);
+      overflow-x: hidden;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    
+    body.loaded {
+      opacity: 1;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    section {
+      padding: 100px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      background-color: rgba(245, 245, 245, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      transform: translateY(-100%);
+      animation: slideDown 0.8s forwards 0.5s;
+    }
+    
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent-color);
+    }
+    
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: var(--transition);
+      background-color: var(--primary-color);
+    }
+    
+    /* About Section */
+    #about {
+      background-color: var(--secondary-color);
+      position: relative;
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    
+    .about-img {
+      flex: 1;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .about-img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .about-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent-color);
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      background-color: #4a73c9;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(93, 141, 236, 0.3);
+    }
+    
+    /* Skills Section */
+    #skills {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+    
+    .skills-content {
+      text-align: center;
+    }
+    
+    .skills-title {
+      color: var(--secondary-color);
+      margin-bottom: 50px;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .skill-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .skill-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    
+    .skill-name {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    
+    /* Projects Section */
+    #projects {
+      background-color: var(--secondary-color);
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .project-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-content {
+      padding: 20px;
+    }
+    
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+    
+    .project-desc {
+      color: var(--medium-grey);
+      margin-bottom: 20px;
+    }
+    
+    .project-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .project-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .project-link:hover {
+      color: #4a73c9;
+    }
+    
+    .project-stars {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--medium-grey);
+    }
+    
+    .loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-left-color: var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Contact Section */
+    #contact {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+    
+    .contact-title {
+      color: var(--secondary-color);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-text {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-5px);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #0a0a0a;
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .footer-text {
+      color: var(--medium-grey);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      section {
+        padding: 80px 0;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-img {
+        margin: 0 auto 40px;
+      }
+      
+      .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        gap: 15px;
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-img {
+        max-width: 100%;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+    
+    .delay-4 {
+      animation-delay: 0.8s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#about" class="logo">DevPortfolio</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Mis Proyectos</a></li>
+          <li><a href="#contact" class="nav-link">Contáctame</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-img fade-in">
+          <img src="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg" alt="Mi perfil">
+        </div>
+        <div class="about-text">
+          <h2 class="section-title fade-in delay-1">Sobre Mí</h2>
+          <p class="fade-in delay-2">¡Hola! Soy un desarrollador web apasionado, con experiencia en la creación de aplicaciones web modernas y atractivas. Me especializo en front-end y tengo amplio conocimiento en tecnologías actuales.</p>
+          <p class="fade-in delay-3">Mi objetivo es crear experiencias digitales que no solo sean funcionales, sino también intuitivas y agradables visualmente. Me encanta resolver problemas complejos y convertir ideas en realidad.</p>
+          <a href="javascript:void(0)" class="btn fade-in delay-4">Descargar CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="skills-content">
+        <h2 class="section-title skills-title">Mis Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fab fa-html5 skill-icon"></i>
+            <h3 class="skill-name">HTML5</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-css3-alt skill-icon"></i>
+            <h3 class="skill-name">CSS3</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-js skill-icon"></i>
+            <h3 class="skill-name">JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-react skill-icon"></i>
+            <h3 class="skill-name">React</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-node-js skill-icon"></i>
+            <h3 class="skill-name">Node.js</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-git-alt skill-icon"></i>
+            <h3 class="skill-name">Git</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-database skill-icon"></i>
+            <h3 class="skill-name">MongoDB</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-figma skill-icon"></i>
+            <h3 class="skill-name">Figma</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Mis Proyectos</h2>
+      <div id="projects-container">
+        <div class="loader">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title contact-title">Contáctame</h2>
+      <div class="contact-container">
+        <p class="contact-text">¿Tienes algún proyecto en mente? ¡Me encantaría colaborar contigo! No dudes en ponerte en contacto conmigo a través de cualquiera de estos canales.</p>
+        <div class="social-links">
+          <a href="javascript:void(0)" class="social-link" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="javascript:void(0)" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="javascript:void(0)" class="social-link" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="javascript:void(0)" class="social-link" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2025 Mi Portfolio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script id="app-script">
+    // Page loading animation
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 300);
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }));
+
+      // Intersection Observer for scroll animations
+      const sections = document.querySelectorAll('section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Simulate GitHub projects API call
+      setTimeout(() => {
+        const projectsContainer = document.getElementById('projects-container');
+        
+        // Mock API response
+        const projects = [
+          {
+            id: 1,
+            name: 'E-commerce Platform',
+            description: 'Plataforma de comercio electrónico con carrito de compras, pagos y panel de administración.',
+            image: 'https://cdn.pixabay.com/photo/2020/04/08/08/08/online-shopping-5016320_1280.jpg',
+            stars: 45,
+            url: 'javascript:void(0)'
+          },
+          {
+            id: 2,
+            name: 'Dashboard App',
+            description: 'Dashboard interactivo con gráficos en tiempo real y análisis de datos para empresas.',
+            image: 'https://cdn.pixabay.com/photo/2017/10/24/12/06/business-2884023_1280.jpg',
+            stars: 32,
+            url: 'javascript:void(0)'
+          },
+          {
+            id: 3,
+            name: 'Social Media App',
+            description: 'Aplicación de redes sociales con chat en tiempo real, publicaciones y sistema de amigos.',
+            image: 'https://cdn.pixabay.com/photo/2020/05/18/16/17/social-media-5187243_1280.png',
+            stars: 28,
+            url: 'javascript:void(0)'
+          }
+        ];
+
+        let projectsHTML = '<div class="projects-grid">';
+        
+        projects.forEach(project => {
+          projectsHTML += `
+            <div class="project-card">
+              <img src="${project.image}" alt="${project.name}" class="project-img">
+              <div class="project-content">
+                <h3 class="project-title">${project.name}</h3>
+                <p class="project-desc">${project.description}</p>
+                <div class="project-links">
+                  <a href="${project.url}" class="project-link">
+                    Ver proyecto <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <div class="project-stars">
+                    <i class="fas fa-star"></i> ${project.stars}
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        
+        projectsHTML += '</div>';
+        projectsContainer.innerHTML = projectsHTML;
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
