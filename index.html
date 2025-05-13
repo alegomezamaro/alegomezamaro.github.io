@@ -3,128 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Portfolio | Desarrollador Web</title>
+  <title>Alejandro Gómez Amaro | Portfolio</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#about" class="logo">Alejandro Gómez Amaro</a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#about" class="nav-link">Sobre Mí</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Mis Proyectos</a></li>
-          <li><a href="#contact" class="nav-link">Contáctame</a></li>
-        </ul>
+  <!-- Hero / Sobre mí -->
+  <section id="sobre-mi" class="hero">
+    <img src="assets/images/profile.jpg" alt="Foto de perfil" class="perfil">
+    <div class="intro">
+      <h1>Hola, soy Alejandro Gómez Amaro</h1>
+      <h2>Desarrollador Web Full Stack</h2>
+      <p>Apasionado por crear soluciones web modernas y eficientes. Me encanta programar y compartir lo que aprendo.</p>
+      <nav class="botones">
+        <a href="#skills">Skills</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contáctame</a>
       </nav>
     </div>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-img fade-in">
-          <img src="assets/images/profile.jpg" alt="Mi perfil">
-        </div>
-        <div class="about-text">
-          <h2 class="section-title fade-in delay-1">Sobre Mí</h2>
-          <p class="fade-in delay-2">¡Hola! Soy <strong>Alejandro Gómez Amaro</strong>, un apasionado desarrollador web con experiencia en la creación de aplicaciones modernas y atractivas. Me especializo en front-end y poseo un amplio conocimiento en tecnologías como HTML5, CSS3, JavaScript, React, y más.</p>
-          <p class="fade-in delay-3">Mi objetivo es crear experiencias digitales que no solo sean funcionales, sino también intuitivas y visualmente atractivas. Me encanta resolver problemas complejos y convertir ideas en proyectos reales.</p>
-          <a href="javascript:void(0)" class="btn fade-in delay-4">Descargar CV</a>
-        </div>
-      </div>
-    </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <div class="skills-content">
-        <h2 class="section-title skills-title">Mis Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <i class="fab fa-html5 skill-icon"></i>
-            <h3 class="skill-name">HTML5</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-css3-alt skill-icon"></i>
-            <h3 class="skill-name">CSS3</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-js skill-icon"></i>
-            <h3 class="skill-name">JavaScript</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-react skill-icon"></i>
-            <h3 class="skill-name">React</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-node-js skill-icon"></i>
-            <h3 class="skill-name">Node.js</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-git-alt skill-icon"></i>
-            <h3 class="skill-name">Git</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-database skill-icon"></i>
-            <h3 class="skill-name">MongoDB</h3>
-          </div>
-          <div class="skill-card">
-            <i class="fab fa-figma skill-icon"></i>
-            <h3 class="skill-name">Figma</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>Git & GitHub</li>
+    </ul>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2 class="section-title">Mis Proyectos</h2>
-      <div id="projects-container">
-        <div class="loader">
-          <div class="spinner"></div>
-        </div>
-      </div>
-    </div>
+  <!-- Proyectos -->
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div id="repos"></div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2 class="section-title contact-title">Contáctame</h2>
-      <div class="contact-container">
-        <p class="contact-text">¿Tienes algún proyecto en mente? ¡Me encantaría colaborar contigo! No dudes en ponerte en contacto conmigo a través de cualquiera de estos canales:</p>
-        <div class="social-links">
-          <a href="mailto:alexgoama@egmail.com" class="social-link" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="mailto:p32goama@uco.es" class="social-link" aria-label="Email Profesional">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/alegomezamaro" class="social-link" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/alegomezamaro" class="social-link" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+  <!-- Contáctame -->
+  <section id="contacto">
+    <h2>Contáctame</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu email" required>
+      <textarea placeholder="Tu mensaje" required></textarea>
+      <button type="submit" onclick="window.location='mailto:alejandro@example.com'; return false;">Enviar</button>
+    </form>
   </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">© 2025 Mi Portfolio. Todos los derechos reservados.</p>
-    </div>
-  </footer>
 
   <script src="assets/js/script.js"></script>
 </body>

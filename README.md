@@ -1,10 +1,8 @@
-# Mi Portfolio - Alejandro Gómez Amaro
+# Portfolio de Alejandro Gómez Amaro
 
-Este es mi portfolio personal, desarrollado como una página web para mostrar mis habilidades, proyectos y formas de contacto como desarrollador web.
+Este es el código fuente para mi portfolio personal, alojado en GitHub Pages.
 
 ## Estructura del Proyecto
-
-Este proyecto tiene la siguiente estructura de directorios:
 
 ```
 |-- /portfolio
@@ -18,12 +16,9 @@ Este proyecto tiene la siguiente estructura de directorios:
 |   |-- index.html                # El archivo HTML principal que estructura la página.
 |   |-- README.md                 # Este archivo de documentación.
 ```
+## Funcionalidades
 
-### Descripción del Proyecto
-
-El sitio web incluye varias secciones destacadas:
-
-- **Sobre Mí**: Una introducción personal y una breve descripción de mis habilidades como desarrollador web.
-- **Mis Skills**: Una lista de las tecnologías con las que trabajo, como HTML5, CSS3, JavaScript, React, Node.js, etc.
-- **Mis Proyectos**: Muestra de proyectos recientes en los que he trabajado. (Puedes agregar los enlaces y descripciones de tus proyectos aquí).
-- **Contáctame**: Enlaces a mis redes sociales y correos electrónicos para contactarme.
+- Hero con foto y descripción personal.
+- Sección de Skills.
+- Sección de Proyectos que se cargan automáticamente desde mi GitHub.
+- Formulario de contacto que abre el correo por defecto.
