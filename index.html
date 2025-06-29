@@ -1,115 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Alejandro Gómez Amaro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Bebas Neue', sans-serif;
-      background-color: #EDEDED;
-      color: #000000;
-    }
-    header {
-      background-color: #1F747F;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: 3rem;
-      margin: 0;
-      color: #EDEDED;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: 2rem;
-      border-bottom: 2px solid #1F747F;
-      padding-bottom: 0.5rem;
-      color: #1F747F;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-    .repo-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .repo {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .contact a {
-      color: #1F747F;
-      text-decoration: none;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css?family=Anton:400|Bebas+Neue:400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Courier+Prime:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>ALEJANDRO GÓMEZ AMARO</h1>
-    <h2>Computer Engineering Student</h2>
+    <div class="container">
+      <h1 class="main-title">
+        <span class="block">ALEJANDRO GÓMEZ AMARO</span>
+      </h1>
+      <h2 class="subtitle">Computer Engineering</h2>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Currently pursuing a degree in Computer Engineering at the University of Córdoba, with a strong interest in software development and cybersecurity.
-      I’m learning C++ and Python, combining academic training with online courses and hands-on projects. Passionate about continuous learning, teamwork, and building innovative tech solutions.
-      Open to collaboration, networking, and new learning opportunities in the tech world.
-    </p>
-  </section>
-
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="repo-list" id="repos"></div>
-  </section>
-
-  <section id="skills">
-    <h2>My Skills</h2>
+  <nav>
     <ul>
-      <li>C++</li>
-      <li>C</li>
-      <li>PL/SQL</li>
-      <li>SQL</li>
-      <li>GitHub</li>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#projects">My projects</a></li>
+      <li><a href="#skills">My skills</a></li>
+      <li><a href="#contact">Contact me</a></li>
     </ul>
-  </section>
+  </nav>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:alexgoama@gmail.com">alexgoama@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/alegomezamaro/" target="_blank">linkedin.com/in/alegomezamaro</a></p>
-  </section>
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About me</h2>
+      <p>
+        Currently pursuing a degree in Computer Engineering at the University of Córdoba, with a strong interest in software development and cybersecurity.<br>
+        I’m learning C++ and Python, combining academic training with online courses and hands-on projects. Passionate about continuous learning, teamwork, and building innovative tech solutions.<br>
+        Open to collaboration, networking, and new learning opportunities in the tech world.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>My projects</h2>
+      <div id="repos" class="repos-grid">
+        <!-- JS injecta aquí los repos pinned -->
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>My skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <img src="assets/cpp.svg" alt="C++">
+          <span>C++</span>
+        </div>
+        <div class="skill-card">
+          <img src="assets/c.svg" alt="C">
+          <span>C</span>
+        </div>
+        <div class="skill-card">
+          <img src="assets/plsql.svg" alt="PL/SQL">
+          <span>PL/SQL</span>
+        </div>
+        <div class="skill-card">
+          <img src="assets/sql.svg" alt="SQL">
+          <span>SQL</span>
+        </div>
+        <div class="skill-card">
+          <img src="assets/github.svg" alt="GitHub">
+          <span>GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact me</h2>
+      <p>Email: <a href="mailto:alexgoama@gmail.com">alexgoama@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/alegomezamaro/" target="_blank">/alegomezamaro</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Alejandro Gómez Amaro 2025 
+  </footer>
 
   <script>
-    fetch('https://gh-pinned-repos.egoist.dev/?username=alegomezamaro')
+    // JS para mostrar los repositorios pinned automáticamente
+    const githubUser = "alegomezamaro";
+    fetch(`https://gh-pinned-repos.egoist.dev/?username=${githubUser}`)
       .then(res => res.json())
       .then(repos => {
-        const container = document.getElementById('repos');
+        const grid = document.getElementById('repos');
         repos.forEach(repo => {
-          const el = document.createElement('div');
-          el.className = 'repo';
-          el.innerHTML = `
-            <h3><a href="${repo.link}" target="_blank">${repo.repo}</a></h3>
+          const card = document.createElement('a');
+          card.className = 'repo-card';
+          card.href = repo.link;
+          card.target = '_blank';
+          card.innerHTML = `
+            <h3>${repo.repo}</h3>
             <p>${repo.description || ''}</p>
+            <span class="lang">${repo.language || ''}</span>
           `;
-          container.appendChild(el);
+          grid.appendChild(card);
         });
       });
   </script>
