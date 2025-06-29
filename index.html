@@ -2,183 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alejandro Gómez Amaro - GitHub Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alejandro Gómez Amaro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    /* Tipografía GitHub */
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-      background-color: #fff;
-      color: #24292e;
       margin: 0;
-      padding: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      background-color: #EDEDED;
+      color: #000000;
     }
     header {
-      background-color: #24292e;
+      background-color: #1F747F;
       color: white;
-      padding: 2rem 1rem;
+      padding: 2rem;
       text-align: center;
-      border-bottom: 1px solid #444d56;
     }
-    header h1 {
-      font-weight: 600;
-      font-size: 2rem;
+    h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
       margin: 0;
+      color: #EDEDED;
     }
-    header p {
-      font-weight: 400;
-      font-size: 1rem;
-      margin-top: 0.3rem;
-      color: #8b949e;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
     h2 {
-      border-bottom: 1px solid #e1e4e8;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #24292e;
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      border-bottom: 2px solid #1F747F;
+      padding-bottom: 0.5rem;
+      color: #1F747F;
     }
-    p {
-      line-height: 1.5;
-      font-size: 1rem;
-      color: #57606a;
-    }
-    a {
-      color: #0969da;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    ul.repo-list {
-      list-style: none;
+    ul {
+      list-style-type: none;
       padding: 0;
-      margin: 0;
     }
-    ul.repo-list li {
-      border: 1px solid #d0d7de;
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
-      background-color: #f6f8fa;
-      transition: background-color 0.2s;
-    }
-    ul.repo-list li:hover {
-      background-color: #e1e4e8;
-    }
-    .repo-name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #0969da;
-      display: inline-block;
-      margin-bottom: 0.25rem;
-    }
-    .repo-name:hover {
-      text-decoration: underline;
-    }
-    .repo-desc {
-      font-size: 1rem;
-      color: #57606a;
+    li {
       margin-bottom: 0.5rem;
-      min-height: 1.4em;
     }
-    .repo-info {
-      font-size: 0.85rem;
-      color: #57606a;
-      display: flex;
+    .repo-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1rem;
-      align-items: center;
     }
-    .repo-info span {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+    .repo {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .repo-info i {
-      color: #57606a;
-    }
-
-    footer {
-      max-width: 960px;
-      margin: 3rem auto 2rem;
-      padding: 0 1rem;
-      font-size: 0.9rem;
-      color: #8b949e;
-      text-align: center;
-      border-top: 1px solid #e1e4e8;
-      user-select: none;
+    .contact a {
+      color: #1F747F;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Alejandro Gómez Amaro</h1>
-    <p>Computer Engineering student</p>
+    <p>Computer Engineering Student</p>
   </header>
 
-  <main>
-    <section>
-      <h2>Hi there!</h2>
-      <p>I'm from Córdoba, Spain. I'm currently studying Computer Engineering at the University of Córdoba.</p>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Currently pursuing a degree in Computer Engineering at the University of Córdoba, with a strong interest in software development and cybersecurity.
+      I’m learning C++ and Python, combining academic training with online courses and hands-on projects. Passionate about continuous learning, teamwork, and building innovative tech solutions.
+      Open to collaboration, networking, and new learning opportunities in the tech world.
+    </p>
+  </section>
 
-    <section>
-      <h2>GitHub Repositories</h2>
-      <ul id="repo-list" class="repo-list">
-        <li>Loading repositories...</li>
-      </ul>
-    </section>
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="repo-list" id="repos"></div>
+  </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p><a href="https://www.linkedin.com/in/alejandro-g%C3%B3mez-amaro-4566a5306/">LinkedIn</a></p>
-      <p>Email: <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWrRqhSKzrBGbFMRzGnLSBldXNXpFKxpckGXrJppkcrQwCtSKCkBbcrdzfmWWWgFmJmSFhNkL">alexgoama@gmail.com</a></p>
-    </section>
-  </main>
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>C++</li>
+      <li>C</li>
+      <li>PL/SQL</li>
+      <li>SQL</li>
+      <li>GitHub</li>
+    </ul>
+  </section>
 
-  <footer>
-    &copy; 2025 Alejandro Gómez Amaro
-  </footer>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:alexgoama@gmail.com">alexgoama@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/alegomezamaro/" target="_blank">linkedin.com/in/alegomezamaro</a></p>
+  </section>
 
   <script>
-    const repoList = document.getElementById('repo-list');
-
-    fetch('https://api.github.com/users/alegomezamaro/repos?sort=updated&per_page=20')
+    fetch('https://gh-pinned-repos.egoist.dev/?username=alegomezamaro')
       .then(res => res.json())
       .then(repos => {
-        repoList.innerHTML = '';
-        if (!Array.isArray(repos) || repos.length === 0) {
-          repoList.innerHTML = '<li>No public repositories found.</li>';
-          return;
-        }
-
+        const container = document.getElementById('repos');
         repos.forEach(repo => {
-          const li = document.createElement('li');
-
-          li.innerHTML = `
-            <a class="repo-name" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
-            <p class="repo-desc">${repo.description ? repo.description : 'No description provided.'}</p>
-            <div class="repo-info">
-              <span><i class="fa fa-star"></i> ${repo.stargazers_count}</span>
-              <span><i class="fa fa-code-fork"></i> ${repo.forks_count}</span>
-              <span>Updated on ${new Date(repo.updated_at).toLocaleDateString()}</span>
-            </div>
+          const el = document.createElement('div');
+          el.className = 'repo';
+          el.innerHTML = `
+            <h3><a href="${repo.link}" target="_blank">${repo.repo}</a></h3>
+            <p>${repo.description || ''}</p>
           `;
-
-          repoList.appendChild(li);
+          container.appendChild(el);
         });
-      })
-      .catch(() => {
-        repoList.innerHTML = '<li>Error loading repositories.</li>';
       });
   </script>
 </body>
