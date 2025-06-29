@@ -135,6 +135,10 @@ section p, section a, section span {
   font-size: 1.3rem;
   color: var(--main);
   letter-spacing: 1.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .repo-card p {
   margin: 0 0 7px 0;
