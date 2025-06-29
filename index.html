@@ -87,21 +87,24 @@
   </footer>
 
   <script>
-    // JS para mostrar los repositorios pinned automáticamente
     const githubUser = "alegomezamaro";
-    fetch(`https://gh-pinned-repos.egoist.dev/?username=${alegomezamaro}`)
+    const reposUrl = `https://api.github.com/users/${githubUser}/repos?per_page=6&sort=updated`;
+
+    fetch(reposUrl)
       .then(res => res.json())
       .then(repos => {
+        // Ordenar por fecha de actualización por si acaso
+        repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
         const grid = document.getElementById('repos');
-        repos.forEach(repo => {
+        repos.slice(0, 6).forEach(repo => {
           const card = document.createElement('a');
           card.className = 'repo-card';
-          card.href = repo.link;
+          card.href = repo.html_url;
           card.target = '_blank';
           card.innerHTML = `
-            <h3>${repo.repo}</h3>
-            <p>${repo.description || ''}</p>
-            <span class="lang">${repo.language || ''}</span>
+            <h3>${repo.name}</h3>
+            <p>${repo.description ? repo.description : ''}</p>
+            <span class="lang">${repo.language ? repo.language : ''}</span>
           `;
           grid.appendChild(card);
         });
